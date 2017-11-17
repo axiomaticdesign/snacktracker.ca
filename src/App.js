@@ -6,7 +6,10 @@ import GoogleLogin from 'react-google-login';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { user: null,  }
+    this.state = {
+      user: null,
+      error: null,
+    }
   }
 
   componentDidMount() {
@@ -15,6 +18,16 @@ class App extends Component {
 
   responseGoogle(response) {
     console.log(response);
+    if (response.error) {
+      this.setState({
+        error: 'go fuck yourself'
+      });
+    }
+    else {
+      this.setState({
+        user: response.WE
+      });
+    }
   }
 
   render() {
