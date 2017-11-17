@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import GoogleLogin from 'react-google-login';
+import Snack from 'snack'
 
 class App extends Component {
   constructor(props) {
@@ -44,6 +45,7 @@ class App extends Component {
     const loggedIn = (
       <div className="App">
         <h1>{ user && `Hello ${user.w3.ig}` }</h1>
+        <snack></snack>
       </div>
     );
 
