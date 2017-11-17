@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import GoogleLogin from 'react-google-login';
-import Snack from 'snack'
+import Snack from 'snack';
 
 class App extends Component {
   constructor(props) {
