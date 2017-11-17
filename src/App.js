@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import GoogleLogin from 'react-google-login';
 
@@ -16,29 +15,42 @@ class App extends Component {
     //check if they are logged in
   }
 
-  responseGoogle(response) {
+  responseGoogle = (response) => {
     console.log(response);
     if (response.error) {
       this.setState({
         error: 'go fuck yourself'
       });
+      console.log('error')
     }
     else {
       this.setState({
-        user: response.WE
+        user: response
       });
+      this.getProducts();
+      console.log('weeee')
     }
   }
 
-  render() {
-    const user = this.state.user;
-    const loggedIn = <div className="App">
-        <h1> SNACK TRACKER </h1>
-      </div>;
+  getProducts = () => {
+    fetch('/api/handlers/products/products.php')
+      .then(res => {
+        console.log(res)
+      })
+  }
 
-    const login = <div>
+  render() {
+    const { user, error } = this.state;
+    const loggedIn = (
+      <div className="App">
+        <h1>{ user && `Hello ${user.w3.ig}` }</h1>
+      </div>
+    );
+
+    const login = (
+      <div>
         <div className="App">
-            <h1> SNACK TRACKER </h1>
+            <h1>{ error || 'Please login' }</h1>
         </div>
         <GoogleLogin
           clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
@@ -46,7 +58,10 @@ class App extends Component {
           onSuccess={this.responseGoogle}
           onFailure={this.responseGoogle}
         />
-      </div>;
+      </div>
+    );
+
+    console.log(user)
 
     return user != null ? loggedIn : login;
   }
