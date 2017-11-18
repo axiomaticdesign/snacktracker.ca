@@ -1,8 +1,8 @@
 <?php
 	define( 'DB_TYPE', 'mysql' );
-	define( 'DB_HOST', 'mysql.snacktracker.ca' );
-	define( 'DB_NAME', 'snacktracker' );
-	define( 'DB_USER', 'tulipst' );
-	define( 'DB_PASS', 'pradaposse' );
-	define( 'CHARSET', 'utf8' );
+	define( 'DB_HOST', '' );
+	define( 'DB_NAME', '' );
+	define( 'DB_USER', '' );
+	define( 'DB_PASS', '' );
+	define( 'CHARSET', '' );
 	
